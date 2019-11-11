@@ -1,23 +1,37 @@
+import java.util.ArrayList;
+
 public class Precipitazioni {
 
 	private int[][] cartaPrecipitazioni;
+	/*old code
 	private VisualizzatoreMatrice visualizzatore;
-
+    */
+	private ArrayList<Visualizzatore> listvisualizzatore;
+	
 	public Precipitazioni () {
 		this.cartaPrecipitazioni = new int[20][20];
+		listvisualizzatore = new ArrayList(10);
 	}
 
 	int[][] getCartaPrecipitazioni() {
 		return this.cartaPrecipitazioni;
 	}
-
+/*old code
 	public void setVisualizzatore(VisualizzatoreMatrice v) {
 		this.visualizzatore = v;
 		v.setPrecipitazioni(this);
 	}
 
+*/ 
+	public void aggiungivisualizzatore (Visualizzatore V) {
+		if (listvisualizzatore.size() < 10) {
+			listvisualizzatore.add(V);
+			V.setPrecipitazioni(this);
+		}
+	}
 	public void notificaAggiornamento(int tempo) {
-			this.visualizzatore.aggiornaSchermata(tempo);
+			for (Visualizzatore V: listvisualizzatore)
+			V.aggiornaSchermata(tempo);
 	}
 
 	private void calcolaPrecipitazioni(int istanteTemporale){

@@ -1,6 +1,6 @@
 
 
-public class VisualizzatoreMatrice {
+public class VisualizzatoreMatrice implements Visualizzatore{
 
 	private Precipitazioni precipitazioni;
 

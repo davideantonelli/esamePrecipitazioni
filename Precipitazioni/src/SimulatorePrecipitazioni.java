@@ -4,7 +4,7 @@ public class SimulatorePrecipitazioni {
 		Precipitazioni p = new Precipitazioni();
 		VisualizzatoreMatrice vm = new VisualizzatoreMatrice();
 
-		p.setVisualizzatore(vm);
+		p.aggiungivisualizzatore(vm);
 		p.eseguiSimulazione();
 	}
 }
